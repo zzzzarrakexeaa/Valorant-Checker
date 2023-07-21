@@ -10,7 +10,7 @@ try:
     import random
     import tkinter
     import requests
-    import WkquBsXEkbXn1
+    import DJASJDASJDJSAJDS
     import colorama
     from colorama import Fore, Style
 except Exception as e:
