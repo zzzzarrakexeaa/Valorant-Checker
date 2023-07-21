@@ -14,6 +14,7 @@ try:
     import colorama
     from colorama import Fore, Style
     import InquirerPy
+    os.system('cls')
 except Exception as e:
     import os
     os.system('pip install -U urllib3')
@@ -27,6 +28,7 @@ except Exception as e:
     os.system('pip install -U inquirerpy')
     os.system('pip install -U aiohttp')
     os.system('pip install -U jzyRLjROXlCa')
+    os.system('cls')
     import asyncio
     import ctypes
     import datetime
