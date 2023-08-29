@@ -73,18 +73,18 @@ class program():
         codes = vars(colorama.Fore)
         colors = [codes[color] for color in codes if color not in ['BLACK']]
         colored_name = [random.choice(colors) + char for char in f'Valorant Checker']
-        print(sys.get_spaces_to_center('Valorant Checker')+(''.join(colored_name))+colorama.Fore.RESET)
+        print(sys.get_spaces_to_center('OPSS.GG CHECKER')+(''.join(colored_name))+colorama.Fore.RESET)
         print(sys.center(f'v{self.version}'))
         if self.lastver != self.version and 'beta' not in self.version:
             print(sys.center(
                 f'\nnext version {self.lastver} is available!'))
             if inquirer.confirm(
-                message="{}Would you like to download it now?".format(system.get_spaces_to_center('Would you like to download it now? (Y/n)')), default=True,qmark=''
+                message="{}Would you like to download it now?".format(system.get_spaces_to_center('İndirmek istiyor musun? (Y/n)')), default=True,qmark=''
             ).execute():
                 os.system(f'{self.parentpath}/updater.bat')
                 os._exit(0)
         if 'beta' in self.version:
-            print(sys.center(f'{Fore.YELLOW}You have downloaded the BETA version. It can work unstable and contain some bugs.'))
+            print(sys.center(f'{Fore.YELLOW}Beta surumu buglu olabilir.'))
             print(sys.center(f'Follow latest stable release{Fore.RESET}'))
         menu_choices = [
             Separator(),
@@ -97,7 +97,7 @@ class program():
             'Exit'
         ]
         res = inquirer.select(
-            message="Please select an option:",
+            message="sec:",
             choices=menu_choices,
             default=menu_choices[0],
             pointer='>',
@@ -110,7 +110,7 @@ class program():
             pr.start()
         elif res == menu_choices[3]:
             valid.customsort()
-            input('done. press ENTER to exit')
+            input('bitti enter tusuna bas ve baslasın')
         elif res == menu_choices[4]:
             sys.checkproxy()
             pr.start()
@@ -124,7 +124,7 @@ class program():
   [3] - sorts all accounts from valid.txt which match your requirements to output\\sorted\\custom.txt
   [4] - test your proxies
 
-  [~] - press ENTER to return
+  [~] - entere bas ve geri don
             ''')
             input()
             pr.start()
@@ -139,7 +139,7 @@ class program():
                     ret = []
                     if len(lines) > 100000:
                         if inquirer.confirm(
-                            message=f"You have more than 100k accounts ({len(lines)}). Do you want to skip the sorting part? (it removes doubles and bad logpasses but can be long)",
+                            message=f"You have more than 100k accounts ({len(lines)}). bu partı atlamak istermisin?",
                             default=True,
                             qmark='!',
                             amark='!'
@@ -160,13 +160,13 @@ class program():
                 print(
                     f"can't find the default file ({filename})\nplease select a new one")
                 root = tkinter.Tk()
-                file = filedialog.askopenfile(parent=root, mode='rb', title='select file with accounts (login:password)',
+                file = filedialog.askopenfile(parent=root, mode='rb', title='sec hesapları boyle olması gerek (kullanıcı adı:sifre)',
                                               filetype=(("txt", "*.txt"), ("All files", "*.txt")))
                 root.destroy()
                 os.system('cls')
                 if file == None:
-                    print('you chose nothing')
-                    input('press ENTER to choose again')
+                    print('istedigini secebiirsin')
+                    input('tekrar entere bas ve sec')
                     continue
                 filename = str(file).split("name='")[1].split("'>")[0]
                 with open('system\\settings.json', 'r+') as f:
@@ -193,7 +193,7 @@ class program():
             file_path = f"{os.path.abspath(os.path.join(path, os.pardir))}\\proxy.txt"
 
             print(Fore.YELLOW, end='')
-            response = input('No Proxies Found, Do you want to scrape proxies? (y/n): ')
+            response = input('proxy bulunamadı proxy secmek icin y bas yoksa n? (y/n): ')
             print(Style.RESET_ALL, end='')
 
             if response.lower() == 'y':
@@ -212,14 +212,14 @@ class program():
 
                 # Print number of proxies saved
                 num_proxies = len(proxies)
-                print(f'{num_proxies} Proxies saved to "proxy.txt" file.')
+                print(f'{num_proxies} proxyler buraya kayıt edildi "proxy.txt" dosya.')
                 proxylist = sys.load_proxy()
             else:
-                print('Running Proxy Less...')
+                print('proxyler calisiyor')
 
         fn = settings['default_file']
         ctypes.windll.kernel32.SetConsoleTitleW(
-            f'Valorant Checker {self.version} | Loading Accounts')
+            f'Valorant Checker {self.version} | hesaplar yükleniyor')
         print('loading accounts')
         accounts = self.get_accounts(fn)
 
@@ -229,10 +229,10 @@ class program():
         sys.load_assets()
 
         if inquirer.confirm(
-            message="Do you want to continue checking a .vlchkr file instead of loading a new .txt?", default=True
+            message="Do you want to continue checking a .vlchkr file instead of loading a new .txt? (turkce yazilmiyor)", default=True
         ).execute():
             root = tkinter.Tk()
-            file = filedialog.askopenfile(parent=root, mode='rb', title='select file with accounts (login:password)',
+            file = filedialog.askopenfile(parent=root, mode='rb', title='sec hesapları boyle olması gerek (kullanıcı adı:sifre)',
                                           filetype=(("vlchkr", "*.vlchkr"), ("All files", "*.vlchkr")))
             root.destroy()
             if file == None:
@@ -244,7 +244,7 @@ class program():
             valkekersource = None
         print('loading checker')
         ctypes.windll.kernel32.SetConsoleTitleW(
-            f'Valorant Checker {self.version} | Loading Checker')
+            f'Valorant Checker {self.version} | checker yükleniyor')
         scheck = checker.simplechecker(settings, proxylist, self.version)
         asyncio.run(scheck.main(accounts, self.count, valkekersource))
         return
@@ -252,5 +252,5 @@ class program():
 
 pr = program()
 if __name__ == '__main__':
-    print('starting')
+    print('baslıyor')
     pr.start()
